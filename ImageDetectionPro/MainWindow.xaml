@@ -1,0 +1,25 @@
+﻿<Window x:Class="ImageDetectionPro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageDetectionPro"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <ComboBox ItemsSource="{Binding cameras, Mode=OneWay}" SelectedIndex="{Binding selectedIndex, Mode=TwoWay}"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Image Source="{Binding capturedImage.Source}"></Image>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Content="Take Screenshot" Click="Button_Click"></Button>
+        </Grid>
+    </Grid>
+</Window>

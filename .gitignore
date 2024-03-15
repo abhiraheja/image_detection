@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ImageDetectionPro/v17
+/.vs/ImageDetectionPro
+/ImageDetectionPro/bin
+/ImageDetectionPro/obj
+/packages
