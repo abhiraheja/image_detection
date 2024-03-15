@@ -17,10 +17,10 @@ namespace ImageDetectionPro.Helpers
         static ConvertBitmapToBitmapImage()
         {
             var configurationDetector = new YoloConfigurationDetector();
-            var config = configurationDetector.Detect("D:\\ImageDetection\\ImageDetectionPro\\ImageDetectionPro\\networks\\yolov3-tiny\\");
+            var config = configurationDetector.Detect("D:\\image_detection\\ImageDetectionPro\\networks\\yolov3-tiny\\");
             yolo = new YoloWrapper(config);
         }
-        public static (BitmapImage, List<YoloItem>) BitmapToImageSourceWithDetection(this System.Drawing.Bitmap bitmap)
+        public static BitmapImage BitmapToImageSourceWithDetection(this System.Drawing.Bitmap bitmap)
         {
             using (MemoryStream memory = new MemoryStream())
             {
@@ -38,7 +38,7 @@ namespace ImageDetectionPro.Helpers
                     string filename = "CAPTURE_PHONE-" + DateTime.Now.ToString("ddMMyyyy-hhmmss") + ".png";
                     bitmapimage.SaveImage($"D:\\CAPTURE\\{filename}");
                 }
-                return (bitmapimage, new List<YoloItem>());
+                return bitmapimage;
             }
         }
 
@@ -83,7 +83,7 @@ namespace ImageDetectionPro.Helpers
                     string filename = "ScreenCapture-" + DateTime.Now.ToString("ddMMyyyy-hhmmss") + ".png";
                     //  Opacity = .0;
                     g.CopyFromScreen((int)screenLeft, (int)screenTop, 0, 0, bmp.Size);
-                    string filePath = "D:\\" + filename;
+                    string filePath = "D:\\Screenshots\\" + filename;
                     var bitmapImage = bmp.BitmapToImageSource();
                     bitmapImage.SaveImage(filePath);
                     //  Opacity = 1;
